@@ -1,80 +1,137 @@
-# \# Visual Analytics – VAST Challenge 2021
+# VAST Challenge 2021 – Visual Analysis
 
-# 
+Interactive web-based visual analytics project focused on anomaly detection and pattern exploration using the VAST Challenge 2021 dataset.
 
-# Progetto di visualizzazione dati interattiva sviluppato utilizzando Vue.js e D3.js, basato sui dataset del VAST Challenge 2021 (Mini Challenge 2).
+---
 
-# 
+## 🚀 Overview
 
-# \## 🧠 Obiettivo
+This project explores the VAST Challenge 2021 (Mini Challenge 2) dataset through interactive visualizations.
 
-# Analizzare dati eterogenei (transazioni, GPS, carte di credito e fidelity) per individuare pattern, anomalie e possibili relazioni tra individui.
+The application provides tools to analyze transactions, movement data, and geospatial information, enabling users to identify patterns, anomalies, and relationships within the dataset.
 
-# 
+The system is designed as an exploratory analysis tool, combining multiple coordinated views to support data-driven insights.
 
-# \## ⚙️ Tecnologie utilizzate
+---
 
-# \- Vue 3
+## ✨ Features
 
-# \- D3.js
+* 📊 Interactive data visualizations
+* 🔥 Heatmap of transactions over time and locations
+* 🔗 Sankey diagram for transaction relationships
+* 📈 Statistical indicators (mean, mode, standard deviation)
+* 🕒 Temporal analysis (transactions per hour/day)
+* 🗺️ Geospatial visualization of movements
+* 🎯 Focused analysis views per location and time
+* 🔍 Pattern and anomaly detection support
 
-# \- Bootstrap
+---
 
-# 
+## 🧠 Analysis Goals
 
-# \## 📊 Funzionalità principali
+The project focuses on:
 
-# 
+* Identifying high-activity locations
+* Detecting temporal patterns in transactions
+* Analyzing differences between credit and loyalty card usage
+* Exploring relationships between entities through movement data
+* Highlighting anomalies and unusual behaviors
 
-# \### 1. Overview dati
+---
 
-# \- Heatmap delle transazioni per giorno e location
+## 🛠️ Tech Stack
 
-# \- Indicatori statistici (media, moda, deviazione standard)
+* Vue.js
+* JavaScript
+* D3.js (data visualization)
+* HTML / CSS
 
-# 
+---
 
-# \### 2. Analisi transazioni
+## 📁 Project Structure
 
-# \- Filtri per luogo e giorno
+```text
+.
+├── public/                         # Static assets
+├── src/                            # Main application source code
+│   ├── components/                 # Visualization components
+│   ├── views/                      # Main views
+│   ├── assets/                     # Dataset and resources
+│   └── main.js                     # App entry point
+│
+├── package.json                    # Dependencies and scripts
+├── vue.config.js                   # Vue configuration
+└── README.md
+```
 
-# \- Grafici interattivi:
+---
 
-# &#x20; - Distribuzione oraria delle transazioni
+## ⚙️ Installation
 
-# &#x20; - Analisi dei prezzi
+Clone the repository:
 
-# &#x20; - Sankey diagram per visualizzare relazioni tra metodo di pagamento, prezzo e tempo
+```bash
+git clone https://github.com/SimonePisani/vast-challenge-2021-visual-analysis.git
+cd vast-challenge-2021-visual-analysis
+```
 
-# 
+Install dependencies:
 
-# \### 3. Analisi geospaziale
+```bash
+npm install
+```
 
-# \- Mappa interattiva con tracciamento dei movimenti
+---
 
-# \- Visualizzazione in tempo reale delle posizioni
+## ▶️ Usage
 
-# \- Tracce dei percorsi recenti
+Run the development server:
 
-# \- Timeline navigabile
+```bash
+npm run serve
+```
 
-# 
+Then open:
 
-# \## 🔄 Data processing
+```
+http://localhost:8080
+```
 
-# \- Conversione dati in formato JSON e GeoJSON
+---
 
-# \- Integrazione di dataset multipli tramite chiavi comuni
+## 📊 Dataset
 
-# \- Pulizia e riduzione dei dati per ottimizzare le performance
+Full dataset available at:
+https://vast-challenge.github.io/2021/MC2.html
 
-# 
+---
 
-# \## 🚀 Avvio del progetto
+## 📷 Visualizations
 
-# ```bash
+The system provides multiple coordinated views:
 
-# npm install
+* Heatmap overview of transactions
+* Detailed focus view with statistical analysis
+* Sankey diagram for transaction flow
+* Geospatial movement visualization
 
-# npm run serve
+---
 
+## 📌 Notes
+
+This project focuses on exploratory data analysis and visualization techniques applied to a complex real-world dataset.
+
+---
+
+## 🚧 Future Improvements
+
+* Improve performance with large datasets
+* Add filtering and brushing interactions
+* Enhance UI/UX for better usability
+* Deploy as a hosted web application
+
+---
+
+## 👨‍💻 Author
+
+Simone Pisani
