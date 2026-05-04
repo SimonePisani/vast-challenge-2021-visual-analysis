@@ -1,137 +1,188 @@
-# VAST Challenge 2021 – Visual Analysis
+# VAST Challenge 2021 – Interactive Visual Analytics System
 
-Interactive web-based visual analytics project focused on anomaly detection and pattern exploration using the VAST Challenge 2021 dataset.
+An interactive visual analytics system designed to explore, analyze and uncover patterns, anomalies and relationships in a complex multi-source dataset (GPS, credit card, and loyalty transactions).
 
----
+The project integrates **temporal, geospatial and relational visualizations** to support investigative analysis across different days, locations and entities.
 
-## 🚀 Overview
-
-This project explores the VAST Challenge 2021 (Mini Challenge 2) dataset through interactive visualizations.
-
-The application provides tools to analyze transactions, movement data, and geospatial information, enabling users to identify patterns, anomalies, and relationships within the dataset.
-
-The system is designed as an exploratory analysis tool, combining multiple coordinated views to support data-driven insights.
+Originally developed as part of a Visual Analytics course, this project focuses on transforming raw, inconsistent data into meaningful insights through interactive exploration.
 
 ---
 
-## ✨ Features
+## Problem & Goals
 
-* 📊 Interactive data visualizations
-* 🔥 Heatmap of transactions over time and locations
-* 🔗 Sankey diagram for transaction relationships
-* 📈 Statistical indicators (mean, mode, standard deviation)
-* 🕒 Temporal analysis (transactions per hour/day)
-* 🗺️ Geospatial visualization of movements
-* 🎯 Focused analysis views per location and time
-* 🔍 Pattern and anomaly detection support
+The dataset contains heterogeneous and partially inconsistent data sources, including:
 
----
+* GPS traces of individuals
+* Credit card transactions
+* Loyalty card transactions
+* Employee and vehicle assignments
 
-## 🧠 Analysis Goals
+The goal of the project is to support analytical tasks such as:
 
-The project focuses on:
-
-* Identifying high-activity locations
-* Detecting temporal patterns in transactions
-* Analyzing differences between credit and loyalty card usage
-* Exploring relationships between entities through movement data
-* Highlighting anomalies and unusual behaviors
+* Identifying the most popular locations and their temporal patterns
+* Detecting anomalies in transactional behavior
+* Inferring relationships between individuals
+* Correlating movements with financial activity
+* Highlighting potential suspicious behaviors
 
 ---
 
-## 🛠️ Tech Stack
+## Analytical Process
 
-* Vue.js
-* JavaScript
-* D3.js (data visualization)
-* HTML / CSS
+The project follows a structured visual analytics workflow based on progressive exploration:
+
+1. **Overview Phase**
+
+   * Identify global patterns across locations and days
+   * Highlight high-density transactional areas
+
+2. **Focused Analysis**
+
+   * Apply filters (location, day, time)
+   * Explore distributions, price variations and payment methods
+
+3. **Relational Exploration**
+
+   * Analyze connections between time, price and transaction types
+   * Identify correlations and anomalies
+
+4. **Geospatial Investigation**
+
+   * Track movements of individuals over time
+   * Correlate mobility with transactional activity
+   * Detect inconsistencies and suspicious patterns
 
 ---
 
-## 📁 Project Structure
+## Data Preparation & Engineering
 
-```text
-.
-├── public/                         # Static assets
-├── src/                            # Main application source code
-│   ├── components/                 # Visualization components
-│   ├── views/                      # Main views
-│   ├── assets/                     # Dataset and resources
-│   └── main.js                     # App entry point
-│
-├── package.json                    # Dependencies and scripts
-├── vue.config.js                   # Vue configuration
-└── README.md
+The original dataset presented several challenges:
+
+* Inconsistent timestamp formats across sources
+* Non-unique identifiers (e.g. last 4 digits of credit cards)
+* Large dataset size
+
+To address these issues:
+
+* Converted CSV datasets into JSON format
+* Transformed geospatial data into **GeoJSON** for D3 integration
+* Merged GPS and car assignment data using the `id` field
+* Cleaned and reduced dataset size by removing non-essential fields
+* Normalized timestamps for consistent temporal analysis
+
+This preprocessing phase was essential to enable meaningful cross-dataset analysis.
+
+---
+
+## Visualizations & System Design
+
+The system is structured into three main analytical layers:
+
+### 1. Overview (Global Patterns)
+
+* **Heatmap** → transaction density across locations and days
+* **Statistical summary** → total, mean, mode, standard deviation
+
+Provides a quick and intuitive understanding of overall trends.
+
+---
+
+### 2. Focused Analysis (Filtered Insights)
+
+* Interactive filters (location, day)
+* Coordinated visualizations:
+
+  * **Bar chart** → transactions by hour
+  * **Pie chart** → payment method distribution
+  * **Scatterplot** → price peaks and variations
+  * **Sankey diagram** → relationships between time, price and payment methods
+
+The Sankey diagram was introduced to better represent multi-variable relationships not clearly visible in simpler charts.
+
+---
+
+### 3. Geospatial Analysis (Behavioral Patterns)
+
+* Interactive map with movement tracking
+* Time-based controls (forward/backward timeline)
+* Movement trails highlighting recent paths
+* Dynamic updates of transactions and movements
+
+Designed to correlate spatial behavior with financial activity.
+
+---
+
+## Key Insights
+
+The system enables:
+
+* Identification of the most active locations and their temporal patterns
+* Detection of transaction anomalies and unusual peaks
+* Correlation between movement and financial activity
+* Exploration of potential relationships between individuals
+* Identification of inconsistencies between GPS, credit and loyalty data
+
+The combination of multiple coordinated views allows deeper investigation compared to isolated visualizations.
+
+---
+
+## Tech Stack
+
+* **Frontend:** Vue.js
+* **Visualization:** D3.js
+* **Data Processing:** JavaScript / JSON / GeoJSON
+
+---
+
+## Project Structure
+
+```
+src/
+ ├── components/       # Visualization components (heatmap, map, sankey, etc.)
+ ├── assets/           # Data and static resources
+ ├── App.vue
+ └── main.js
 ```
 
 ---
 
-## ⚙️ Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/SimonePisani/vast-challenge-2021-visual-analysis.git
-cd vast-challenge-2021-visual-analysis
-```
-
-Install dependencies:
+## How to Run
 
 ```bash
 npm install
-```
-
----
-
-## ▶️ Usage
-
-Run the development server:
-
-```bash
 npm run serve
 ```
 
-Then open:
+---
 
-```
-http://localhost:8080
-```
+## Notes
+
+* This project was originally developed in a university environment and later consolidated into this repository
+* The commit history does not fully reflect the original development process
 
 ---
 
-## 📊 Dataset
+## Future Improvements
 
-Full dataset available at:
-https://vast-challenge.github.io/2021/MC2.html
-
----
-
-## 📷 Visualizations
-
-The system provides multiple coordinated views:
-
-* Heatmap overview of transactions
-* Detailed focus view with statistical analysis
-* Sankey diagram for transaction flow
-* Geospatial movement visualization
+* Deploy interactive demo
+* Optimize performance for large datasets
+* Improve UI/UX for better usability
+* Add automated data preprocessing pipeline
 
 ---
 
-## 📌 Notes
+## Screenshots / Demo
 
-This project focuses on exploratory data analysis and visualization techniques applied to a complex real-world dataset.
-
----
-
-## 🚧 Future Improvements
-
-* Improve performance with large datasets
-* Add filtering and brushing interactions
-* Enhance UI/UX for better usability
-* Deploy as a hosted web application
+Overview
+<img width="1845" height="879" alt="Screenshot 2026-05-04 100530" src="https://github.com/user-attachments/assets/cef82329-05b2-445a-96d7-9a58773549c6" />
 
 ---
 
-## 👨‍💻 Author
+Focused View
+<img width="1845" height="879" alt="Screenshot 2026-05-04 100530" src="https://github.com/user-attachments/assets/c64361ec-4979-4cbc-904d-743425c4cbe5" />
 
-Simone Pisani
+---
+
+Geospatial Map
+<img width="1853" height="876" alt="Screenshot 2026-05-04 100639" src="https://github.com/user-attachments/assets/2e238ca2-1bff-44c0-be8d-2666e7c43838" />
+
