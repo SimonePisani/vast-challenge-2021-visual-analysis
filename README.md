@@ -179,7 +179,7 @@ Overview
 ---
 
 Focused View
-<img width="1845" height="879" alt="Screenshot 2026-05-04 100530" src="https://github.com/user-attachments/assets/c64361ec-4979-4cbc-904d-743425c4cbe5" />
+<img width="1834" height="864" alt="Screenshot 2026-05-04 100558" src="https://github.com/user-attachments/assets/ecbfcbd3-be3f-4086-aba2-de5fc9564991" />
 
 ---
 
